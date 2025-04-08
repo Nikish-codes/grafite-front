@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="248" fill="white" stroke="black" stroke-width="16"/>
+  
+  <!-- Stylized G -->
+  <path d="M320 176C320 176 280 144 240 144C200 144 160 176 160 256C160 336 200 368 240 368C280 368 320 336 320 336V288H240"
+        stroke="black" 
+        stroke-width="32" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+        
+  <!-- Dot for the i in Grafite -->
+  <circle cx="360" cy="176" r="16" fill="black"/>
+</svg> 

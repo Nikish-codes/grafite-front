@@ -1,0 +1,231 @@
+/* Global MathJax styles to ensure instant rendering */
+
+/* Force visibility for all MathJax elements */
+.MathJax, 
+.MJX-TEX, 
+.mjx-chtml, 
+.mjx-mrow,
+.mjx-math {
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+/* Add placeholder dimensions to prevent content jumps */
+.math-container {
+  min-height: 1.2em;
+  min-width: 1ch;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.math-display-container {
+  min-height: 2em;
+  min-width: 4ch;
+  margin: 0.5em 0;
+  width: 100%;
+  display: block;
+}
+
+/* Set white text for readability */
+.mjx-chtml {
+  color: white !important;
+}
+
+/* Make sure math elements are sized appropriately */
+.mjx-chtml.MJXc-display {
+  margin: 0.5em 0 !important;
+  padding: 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+/* Show MathJax instantly - no flashing or delays */
+[data-testid="question-text"] span.math-container,
+[data-testid="question-text"] span.math-display-container,
+.option-container span.math-container {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Global MathJax styles */
+.MathJax {
+  display: inline !important;
+  outline: none !important;
+  transition: opacity 0.2s ease;
+}
+
+.MathJax_Display {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  margin: 0.5em 0 !important;
+  transition: opacity 0.2s ease;
+}
+
+.MathJax_SVG_Display {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  margin: 0.5em 0 !important;
+}
+
+.MathJax_SVG {
+  outline: none !important;
+}
+
+.MathJax_SVG_Display > .MathJax_SVG {
+  display: inline-block !important;
+  max-width: 100% !important;
+}
+
+/* Fix for MathJax menu and tooltip positioning */
+.MathJax_Menu {
+  z-index: 1000 !important;
+}
+
+.MathJax_Hover_Frame {
+  z-index: 999 !important;
+}
+
+/* Math content container */
+.math-content {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 10px;
+  min-height: 1em;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
+}
+
+/* Prevent layout shifts during typesetting */
+.math-content.loading {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+/* Improve display of chemistry equations */
+.mhchemParser {
+  overflow-x: auto !important;
+}
+
+/* Hide MathJax elements that are still rendering */
+.rendering .MathJax_Display, .rendering .MathJax {
+  opacity: 0;
+}
+
+/* Ensure MathJax containers maintain their space while rendering */
+.math-content * {
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering during animation */
+}
+
+/* Prevent layout shifts by maintaining space for MathJax elements */
+mjx-container {
+  display: inline-block !important;
+}
+
+/* Avoid SVG container layout shifts */
+mjx-container > svg {
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* Style for math errors */
+.math-content-error {
+  color: #ff4d4f;
+  padding: 10px;
+  background-color: rgba(255, 77, 79, 0.1);
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+/* Avoid rendering issues with images next to MathJax */
+.math-content img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Animation to show when MathJax has completed rendering */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.rendered .MathJax_Display, .rendered .MathJax {
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* Fix vertical alignment of inline MathJax elements */
+.MathJax, 
+.mjx-chtml,
+.mjx-math {
+  vertical-align: middle !important; /* Change from baseline to middle */
+  display: inline-flex !important; /* Use inline-flex instead of inline-block */
+  align-items: center !important; /* Center items vertically */
+}
+
+/* Ensure text and MathJax elements align properly */
+span.mjx-chtml {
+  line-height: normal !important;
+  vertical-align: middle !important;
+  margin: 0 0.1em !important; /* Add small horizontal spacing */
+}
+
+/* Root container styles */
+[data-testid="question-text"],
+.solution-text,
+.option-text,
+.text-white {
+  display: flex !important;
+  align-items: center !important; /* Change to center */
+  flex-wrap: wrap !important;
+  gap: 0.1em !important;
+  line-height: 1.5 !important;
+}
+
+/* MathJax specific alignments */
+.MathJax, 
+.mjx-chtml,
+.mjx-math,
+span.mjx-chtml {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  position: relative !important;
+  top: 0 !important; /* Prevent any automatic positioning */
+  margin: 0 0.1em !important;
+}
+
+/* Ensure inline elements stay inline */
+[data-testid="question-text"] .MathJax,
+[data-testid="question-text"] .mjx-chtml,
+[data-testid="question-text"] span.mjx-chtml {
+  display: inline-flex !important;
+  vertical-align: middle !important;
+}
+
+/* Text container spacing */
+[data-testid="question-text"] > *,
+.solution-text > *,
+.option-text > * {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+}
+
+/* Force all text elements to align */
+span, p, div {
+  vertical-align: middle !important;
+}
+
+/* Prevent any unwanted shifts */
+mjx-container {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+

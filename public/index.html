@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Grafite - Advanced Learning Platform for JEE, NEET and other competitive exams"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Grafite - Advanced Learning Platform</title>
+    
+    <!-- Enhanced MathJax config -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$','$'], ['\\(','\\)']],
+          displayMath: [['$$','$$'], ['\\[','\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          enableMenu: false,
+          processHtmlClass: 'tex2jax_process',
+          ignoreHtmlClass: 'tex2jax_ignore'
+        },
+        startup: {
+          typeset: true,
+          pageReady: function() {
+            return MathJax.startup.defaultPageReady().then(function() {
+              console.log('MathJax initial typesetting complete');
+            });
+          }
+        },
+        svg: {
+          fontCache: 'global',
+          scale: 1,
+          minScale: 0.5,
+          mtextInheritFont: true,
+          merrorInheritFont: true,
+          mathmlSpacing: false,
+          skipAttributes: {},
+          exFactor: 0.5,
+          displayAlign: 'center',
+          displayIndent: '0',
+          matchFontHeight: true,
+          linebreaks: { automatic: false }
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    
+    <!-- Enhanced MathJax observer -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Create a MutationObserver to watch for changes
+        const observer = new MutationObserver(function(mutations) {
+          if (window.MathJax && window.MathJax.typeset) {
+            window.MathJax.typeset();
+          }
+        });
+
+        // Start observing once MathJax is loaded
+        setTimeout(function() {
+          const options = {
+            childList: true,
+            subtree: true,
+            characterData: true
+          };
+          observer.observe(document.body, options);
+          
+          // Initial typeset
+          if (window.MathJax && window.MathJax.typeset) {
+            window.MathJax.typeset();
+            console.log('Initial MathJax typeset triggered');
+          }
+        }, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

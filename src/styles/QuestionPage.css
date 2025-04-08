@@ -1,0 +1,372 @@
+/* Question page styles */
+.question-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .question-content {
+    display: grid;
+    grid-template-columns: minmax(300px, 2fr) minmax(0, 1fr);
+    grid-gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .image-container {
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-container {
+    margin-top: 16px;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-wrapper.loading {
+  min-height: 100px;
+  min-width: 150px;
+}
+
+.image-loading-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-loading-placeholder::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.question-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  max-height: 250px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: zoom-in;
+  display: inline-block;
+}
+
+.option-image-container {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 200px;
+  margin: 8px 0;
+}
+
+.option-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  max-height: 120px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: zoom-in;
+}
+
+.question-image.error, 
+.option-image.error {
+  max-height: 100px;
+  opacity: 0.5;
+}
+
+/* Math content proper display */
+.math-content {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 10px; /* Add space for scrollbar */
+  min-height: 20px; /* Prevent layout shifts during MathJax rendering */
+}
+
+/* Improved MathJax styles for instant rendering */
+.math-container {
+  min-height: 1.5em; /* Default line height to prevent layout shifts */
+  display: inline-block;
+  margin: 0;
+  font-size: inherit;
+}
+
+.math-display-container {
+  margin: 1em 0;
+  min-height: 2em;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Force MathJax to render immediately */
+.mjx-chtml {
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+/* Basic MathJax styles */
+.MathJax {
+  outline: none;
+}
+
+.MathJax_Display {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Zoom overlay for images */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.zoom-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+/* Question Page Styles */
+
+/* Option container styles */
+.option-container {
+  display: flex !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  min-height: 48px;
+}
+
+.option-text {
+  flex: 1 1 auto !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  line-height: 1.5 !important;
+}
+
+/* Solution container styles */
+.solution-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  padding: 1rem !important;
+  min-height: 400px !important;
+  background-color: rgba(20, 20, 25, 0.4) !important;
+  border-radius: 0.5rem !important;
+}
+
+.solution-content {
+  width: 100% !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+  line-height: 1.8 !important;
+  font-size: 1.15rem !important;
+  padding: 0.5rem 0 !important;
+}
+
+/* Solution text with better spacing and rendering */
+.solution-text {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  line-height: 1.8 !important;
+  font-size: 1.15rem !important;
+}
+
+/* Improve solution image display */
+.solution-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 1.5rem auto !important;
+  display: block !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 0.375rem !important;
+}
+
+/* Ensure solution box expands properly */
+.solution-content p {
+  margin-bottom: 1rem !important;
+  display: block !important;
+}
+
+/* Ensure MathJax displays well in solutions */
+.solution-content .MathJax_Display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
+  margin: 1rem 0 !important;
+}
+
+/* MathJax specific styles */
+.MathJax, .MathJax * {
+  display: inline !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  vertical-align: baseline !important;
+}
+
+.MathJax_SVG {
+  display: inline !important;
+  vertical-align: middle !important;
+}
+
+/* Only display block for display math */
+.MathJax_SVG_Display {
+  display: block !important;
+  margin: 0.5em auto !important;
+  text-align: center !important;
+}
+
+/* Fix for inline MathJax causing line breaks */
+span.mjx-chtml {
+  display: inline !important;
+  line-height: inherit !important;
+  text-indent: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: normal !important;
+}
+
+/* Ensure text flows normally around math */
+.text-white p, .option-text p, .solution-content p {
+  display: inline !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* Container styles to ensure proper text flow */
+.option-text, .solution-content, .text-white {
+  display: block !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* Ensure MathJax content doesn't break layout */
+.MathJax_Display {
+  display: block !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  margin: 1em 0 !important;
+  text-align: center !important;
+}
+
+/* Zoom overlay styles */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.zoom-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.zoom-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading states */
+.image-loading-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Ensure proper text wrapping in all containers */
+.text-container {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+}
+
+/* Prevent content overflow */
+.content-wrapper {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
